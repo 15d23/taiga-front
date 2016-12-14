@@ -26,7 +26,9 @@ class DuplicateProjectController
     ]
 
     constructor: (@currentUserService, @projectsService, @location, @urlservice) ->
-        @.projects = @currentUserService.projects.get("all")
+        allProjects = @currentUserService.projects.get("all")
+        @.projects = allProjects.filter (project) =>
+            !project.get('blocked_code')
         @.user = @currentUserService.getUser()
         @.canCreatePublicProjects = @currentUserService.canCreatePublicProjects()
         @.canCreatePrivateProjects = @currentUserService.canCreatePrivateProjects()
