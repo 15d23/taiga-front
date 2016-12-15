@@ -148,12 +148,21 @@ $create-project-padding: 1.25rem;
         @include font-size(large);
         padding: 12px;
     }
-    .create-project-action-submit {
+    &-submit {
         flex: 4;
         margin-left: 1rem;
     }
-    .create-project-action-cancel {
+    &-cancel,
+    &-back {
         color: currentColor;
+        &:hover {
+            color: $primary-light;
+        }
+    }
+    &-cancel {
         flex: 1;
+    }
+    &-back {
+        width: 10%;
     }
 }
